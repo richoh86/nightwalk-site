@@ -2,50 +2,340 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Nightwalk — Focus Expedition</title>
-<link rel="stylesheet" href="style.css">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Nightwalk: Focus Expedition</title>
+<meta name="description" content="Start a session and a party sets out across the dark, lit by one lantern. They walk for exactly as long as you stay out of your phone. Leave the app and they stop. Stay away and th">
+<link rel="canonical" href="https://richoh86.github.io/nightwalk-site/">
+<meta name="theme-color" content="#070A12">
+<meta name="apple-itunes-app" content="app-id=6801521235">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Nightwalk">
+<meta property="og:title" content="Nightwalk: Focus Expedition">
+<meta property="og:description" content="Start a session and a party sets out across the dark, lit by one lantern. They walk for exactly as long as you stay out of your phone. Leave the app and they stop. Stay away and th">
+<meta property="og:url" content="https://richoh86.github.io/nightwalk-site/">
+<meta property="og:image" content="https://richoh86.github.io/nightwalk-site/assets/img/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Nightwalk: Focus Expedition">
+<meta name="twitter:description" content="Start a session and a party sets out across the dark, lit by one lantern. They walk for exactly as long as you stay out of your phone. Leave the app and they stop. Stay away and th">
+<meta name="twitter:image" content="https://richoh86.github.io/nightwalk-site/assets/img/og.jpg">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32.png">
+<link rel="icon" type="image/png" sizes="512x512" href="assets/img/icon-512.png">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+<style>
+  :root{
+    color-scheme:dark;
+    --sans:system-ui,-apple-system,'SF Pro Text',"Segoe UI",Roboto,'Helvetica Neue',Arial,sans-serif;
+    --bg:#070A12;--bg2:#0D1322;--surface:#111827;--surface2:#161F33;
+    --line:#232E45;--text:#EDF1FA;--dim:#9AA7C2;
+    --accent:#F0953F;--accent-2:#7FA8E8;--on-accent:#1A0E03;
+    --glow:rgba(240,149,63,.40);--halo1:rgba(240,149,63,.28);--halo2:rgba(90,130,220,.24);
+    --bar:color-mix(in srgb,#070A12 82%,transparent);
+  }
+
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--bg);color:var(--text);
+  font:400 clamp(1rem,.96rem + .2vw,1.125rem)/1.65 var(--sans);
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+  overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit}
+h1,h2,h3{margin:0;font-weight:700;letter-spacing:-.02em;line-height:1.08;
+  text-wrap:balance}
+p{margin:0}
+::selection{background:var(--accent);color:var(--on-accent)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:.3rem}
+
+.wrap{width:min(100% - 2.5rem,72rem);margin-inline:auto}
+@media (min-width:52rem){.wrap{width:min(100% - 5rem,72rem)}}
+
+/* ---------------------------------------------------------------- header */
+.bar{position:sticky;top:0;z-index:50;background:var(--bar);
+  border-bottom:1px solid transparent;
+  backdrop-filter:saturate(1.6) blur(14px);-webkit-backdrop-filter:saturate(1.6) blur(14px);
+  transition:border-color .25s ease,background .25s ease}
+.bar.is-stuck{border-bottom-color:var(--line)}
+.bar .wrap{display:flex;align-items:center;gap:1rem;min-height:3.75rem}
+.brand{display:flex;align-items:center;gap:.65rem;text-decoration:none;
+  font-weight:650;letter-spacing:-.01em;font-size:1rem;margin-right:auto}
+.brand img{width:1.85rem;height:1.85rem;border-radius:.48rem;
+  box-shadow:0 1px 3px rgba(0,0,0,.28),0 0 0 1px var(--line)}
+.bar nav{display:none;gap:1.5rem;font-size:.9rem;color:var(--dim)}
+.bar nav a{text-decoration:none}
+.bar nav a:hover{color:var(--text)}
+@media (min-width:46rem){.bar nav{display:flex}}
+
+.pill{display:inline-flex;align-items:center;gap:.4rem;flex:none;
+  padding:.5rem .95rem;border-radius:999px;font-size:.875rem;font-weight:600;
+  text-decoration:none;background:var(--accent);color:var(--on-accent);
+  box-shadow:0 6px 18px -8px var(--glow);transition:transform .18s ease,filter .18s ease}
+.pill:hover{transform:translateY(-1px);filter:brightness(1.06)}
+.pill.ghost{background:transparent;color:var(--dim);border:1px solid var(--line);
+  box-shadow:none;font-weight:500;cursor:default}
+
+/* -------------------------------------------------------------- app badge */
+.badge{display:inline-block;transition:transform .18s ease,opacity .18s ease}
+.badge:hover{transform:translateY(-2px)}
+.badge img{height:3.1rem;width:auto}
+.soon{display:inline-flex;align-items:center;gap:.6rem;padding:.85rem 1.3rem;
+  border:1px solid var(--line);border-radius:.85rem;background:var(--surface);
+  font-size:.95rem;font-weight:600;letter-spacing:-.01em}
+.soon::before{content:"";width:.5rem;height:.5rem;border-radius:50%;
+  background:var(--accent);box-shadow:0 0 0 4px var(--glow)}
+
+/* ------------------------------------------------------------------- hero */
+.hero{position:relative;isolation:isolate;overflow:hidden;
+  padding-block:clamp(3rem,2rem + 6vw,6.5rem) clamp(3.5rem,2rem + 7vw,7rem);
+  background:linear-gradient(180deg,var(--bg2) 0%,var(--bg) 100%)}
+.hero::before{content:"";position:absolute;inset:-20% -10% 0;z-index:-1;
+  background:radial-gradient(45% 45% at 18% 22%,var(--halo1),transparent 68%),
+             radial-gradient(42% 42% at 88% 8%,var(--halo2),transparent 70%);
+  pointer-events:none}
+.hero .wrap{display:grid;gap:clamp(2.5rem,1rem + 6vw,4.5rem);align-items:center}
+@media (min-width:60rem){.hero .wrap{grid-template-columns:1.05fr .95fr}}
+.kicker{display:inline-block;font-size:.78rem;font-weight:700;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--accent);margin-bottom:1.1rem}
+.hero h1{font-size:clamp(2.1rem,1.3rem + 3.6vw,3.85rem);max-width:19ch}
+.hero .lede{margin-top:1.4rem;max-width:56ch;font-size:clamp(1.03rem,.98rem + .34vw,1.22rem);
+  color:var(--dim);line-height:1.62}
+.cta-row{margin-top:2.2rem;display:flex;flex-wrap:wrap;align-items:center;gap:1rem 1.25rem}
+.meta{margin-top:1.1rem;font-size:.85rem;color:var(--dim);letter-spacing:.01em}
+
+/* ----------------------------------------------------------- device frame */
+.device{position:relative;width:min(100%,20.5rem);margin-inline:auto;
+  padding:.62rem;border-radius:2.75rem;
+  background:linear-gradient(155deg,#5b5b66 0%,#141419 26%,#33333c 55%,#0c0c10 82%,#43434d 100%);
+  box-shadow:0 2px 3px rgba(255,255,255,.10) inset,
+             0 34px 70px -26px rgba(0,0,0,.72),
+             0 90px 120px -60px var(--glow)}
+.device::before,.device::after{content:"";position:absolute;left:-.13rem;width:.13rem;
+  border-radius:.2rem 0 0 .2rem;background:linear-gradient(180deg,#6a6a76,#2a2a32)}
+.device::before{top:6.2rem;height:2.1rem}
+.device::after{top:8.9rem;height:2.1rem}
+.device .screen{position:relative;border-radius:2.2rem;overflow:hidden;
+  background:#000;box-shadow:0 0 0 1px rgba(0,0,0,.6)}
+.device img{width:100%;height:auto}
+.hero .device{transform:perspective(1600px) rotateY(-7deg) rotateX(2deg);
+  transform-style:preserve-3d}
+@media (max-width:60rem){.hero .device{transform:none;width:min(100%,17.5rem)}}
+
+/* --------------------------------------------------------------- features */
+.features{padding-block:clamp(3.5rem,2rem + 6vw,6.5rem);display:grid;
+  gap:clamp(3.5rem,1.5rem + 7vw,6.5rem)}
+.feature{display:grid;gap:clamp(2rem,1rem + 5vw,4.5rem);align-items:center}
+@media (min-width:58rem){
+  .feature{grid-template-columns:1fr 1fr}
+  .feature:nth-child(even) .feature-art{order:-1}
+}
+.feature-art .device{width:min(100%,17rem)}
+.eyebrow{font-size:.76rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--accent);margin-bottom:.9rem}
+.feature h2{font-size:clamp(1.45rem,1.12rem + 1.4vw,2.1rem);max-width:22ch}
+.feature p{margin-top:1.1rem;max-width:52ch;color:var(--dim);line-height:1.68}
+
+/* ------------------------------------------------------------------ trust */
+.trust{border-block:1px solid var(--line);background:var(--surface);
+  padding-block:clamp(2.5rem,1.5rem + 4vw,4rem)}
+.trust h2{font-size:.78rem;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--dim);font-weight:700;margin-bottom:2.2rem}
+.trust-grid{display:grid;gap:2rem 2.5rem;
+  grid-template-columns:repeat(auto-fit,minmax(14rem,1fr))}
+.trust-grid h3{font-size:1.02rem;letter-spacing:-.01em;
+  padding-top:.9rem;border-top:2px solid var(--accent)}
+.trust-grid p{margin-top:.55rem;font-size:.93rem;color:var(--dim);line-height:1.6;max-width:34ch}
+
+/* -------------------------------------------------------------------- cta */
+.closer{position:relative;isolation:isolate;text-align:center;
+  padding-block:clamp(4rem,2.5rem + 7vw,7.5rem);overflow:hidden}
+.closer::before{content:"";position:absolute;inset:0;z-index:-1;
+  background:radial-gradient(60% 80% at 50% 100%,var(--halo1),transparent 72%)}
+.closer p.line{font-size:clamp(1.45rem,1.1rem + 1.9vw,2.4rem);font-weight:700;
+  letter-spacing:-.02em;line-height:1.18;max-width:22ch;margin-inline:auto;
+  text-wrap:balance}
+.closer .cta-row{justify-content:center;margin-top:2.3rem}
+
+/* ----------------------------------------------------------------- footer */
+footer{border-top:1px solid var(--line);background:var(--bg);
+  padding-block:2.75rem 3.25rem;font-size:.9rem;color:var(--dim)}
+footer .wrap{display:flex;flex-wrap:wrap;gap:.85rem 1.6rem;align-items:center}
+footer a{text-decoration:none;border-bottom:1px solid var(--line);padding-bottom:1px}
+footer a:hover{color:var(--text);border-bottom-color:var(--accent)}
+footer .copy{margin-left:auto}
+@media (max-width:44rem){footer .copy{margin-left:0;width:100%}}
+
+/* ------------------------------------------------------------------ prose */
+.doc{padding-block:clamp(2.75rem,2rem + 4vw,5rem) clamp(3rem,2rem + 5vw,6rem)}
+.doc .wrap{width:min(100% - 2.5rem,46rem)}
+.doc h1{font-size:clamp(2rem,1.5rem + 2vw,2.9rem)}
+.doc .sub{margin-top:.7rem;color:var(--dim);font-size:1rem}
+.prose{margin-top:2.75rem;max-width:65ch}
+.prose h2{font-size:1.22rem;margin:2.9rem 0 .85rem;letter-spacing:-.015em}
+.prose h3{font-size:1.03rem;margin:2rem 0 .5rem;letter-spacing:-.01em}
+.prose p{margin:0 0 1.05rem;color:var(--dim);line-height:1.72}
+.prose strong{color:var(--text);font-weight:650}
+.prose em{color:var(--text);font-style:italic}
+.prose a{color:var(--accent);text-decoration:none;border-bottom:1px solid var(--glow)}
+.prose a:hover{border-bottom-color:var(--accent)}
+.prose ul{margin:0 0 1.2rem;padding-left:1.15rem;color:var(--dim)}
+.prose li{margin:.4rem 0;line-height:1.68}
+.prose li::marker{color:var(--accent)}
+.prose dl{margin:0}
+.prose dt{font-weight:650;color:var(--text);margin:2rem 0 .5rem;letter-spacing:-.01em}
+.prose dd{margin:0 0 1.05rem;color:var(--dim);line-height:1.72}
+.prose code{font:.88em/1.4 ui-monospace,SFMono-Regular,Menlo,monospace;
+  background:var(--surface2);border:1px solid var(--line);border-radius:.35rem;
+  padding:.1em .4em;color:var(--text)}
+.prose hr{margin:3.25rem 0;border:0;border-top:1px solid var(--line)}
+.card,.lede-box{background:var(--surface);border:1px solid var(--line);
+  border-left:3px solid var(--accent);border-radius:.7rem;
+  padding:1.15rem 1.35rem;margin:0 0 1.6rem}
+.card p,.lede-box p{margin:0 0 .8rem}
+.card p:last-child,.lede-box p:last-child{margin:0}
+.doc-links{margin-top:3.5rem;padding-top:1.5rem;border-top:1px solid var(--line);
+  font-size:.92rem;color:var(--dim);display:flex;flex-wrap:wrap;gap:.6rem 1.3rem}
+.doc-links a{text-decoration:none;border-bottom:1px solid var(--line)}
+.doc-links a:hover{color:var(--text);border-bottom-color:var(--accent)}
+
+/* ----------------------------------------------------------------- reveal */
+.js .reveal{opacity:0;transform:translateY(18px);
+  transition:opacity .7s cubic-bezier(.22,.7,.3,1),transform .7s cubic-bezier(.22,.7,.3,1)}
+.js .reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  .js .reveal{opacity:1;transform:none;transition:none}
+  .badge:hover,.pill:hover{transform:none}
+}
+</style>
 </head>
 <body>
-<div class="wrap">
-  <nav><a href="index.html">Home</a><a href="support.html">Support</a><a href="privacy.html">Privacy</a></nav>
 
-  <h1>NIGHTWALK</h1>
-  <p class="tag">A focus timer where the expedition only advances while you do.</p>
-
-  <div class="card">
-    <p>Start a session and a party sets out across the dark, lit by one lantern. They walk for
-    exactly as long as you stay out of your phone. Leave the app and they stop; stay away and they
-    lose the road.</p>
+<header class="bar">
+  <div class="wrap">
+    <a class="brand" href="./"><img src="assets/img/icon-512.png" width="512" height="512" alt="">Nightwalk</a>
+    <nav><a href="support.html">Support</a><a href="privacy.html">Privacy</a></nav>
+    <a class="pill" href="https://apps.apple.com/app/id6801521235">App&nbsp;Store</a>
   </div>
+</header>
 
-  <h2>What makes it different</h2>
-  <p>Timer apps that grow a tree give you a tree. Nightwalk spends the time instead: focused minutes
-  are the resource the expedition runs on, encounters cost stamina, and what survives the walk buys
-  the next party.</p>
+<main>
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <p class="kicker">Focus timer · Productivity</p>
+      <h1>The expedition only advances while you do.</h1>
+      <p class="lede">Start a session and a party sets out across the dark, lit by one lantern. They walk for exactly as long as you stay out of your phone. Leave the app and they stop. Stay away and they lose the road.</p>
+      <div class="cta-row"><a class="badge" href="https://apps.apple.com/app/id6801521235"><img src="assets/img/app-store-badge.svg" width="160" height="53" alt="Download on the App Store"></a></div>
+      <p class="meta">iPhone · Free · Works offline</p>
+    </div>
+    <div class="hero-art">
+      <div class="device">
+        <div class="screen">
+          <picture>
+            <source srcset="assets/img/shot-2-2-march.webp" type="image/webp">
+            <img src="assets/img/shot-2-2-march.jpg" width="760" height="1651" fetchpriority="high" decoding="async" alt="Nightwalk mid-session: a party of four marching through a moonlit valley, 24 minutes remaining at a depth of 228.8.">
+          </picture>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-  <h2>Three rules it keeps</h2>
-  <ul>
-    <li><strong>Nothing to tap.</strong> There is no input at all during a session — that is the
-      whole idea.</li>
-    <li><strong>Locking your phone is not leaving.</strong> Screen off, face down, still walking.</li>
-    <li><strong>Focusing longer is never worse.</strong> Lost encounters still pay, the party cannot
-      wipe, and every session counts the minutes you actually concentrated — even the ones that
-      ended badly.</li>
-  </ul>
-
-  <h2>Links</h2>
-  <p><a href="support.html">Support</a> · <a href="privacy.html">Privacy Policy</a> ·
-  <a href="mailto:richohios@gmail.com">richohios@gmail.com</a></p>
-
-  <hr>
-  <h2>나이트워크</h2>
-  <p>집중한 만큼만 원정대가 전진하는 타이머입니다. 세션을 시작하면 등불 하나를 든 원정대가 밤길을
-  행군하고, 앱을 벗어나면 멈춥니다. 돌아오지 않으면 길을 잃습니다.</p>
-  <p>세션 중에는 누를 것이 아무것도 없습니다. 화면을 잠그는 것은 이탈이 아니며, 더 오래 집중해서
-  손해 보는 경우도 없습니다.</p>
-
-  <footer>© 2026 Richard Oh</footer>
+<div class="wrap">
+  <div class="features">
+    <section class="feature reveal">
+      <div class="feature-copy">
+        <p class="eyebrow">The descent</p>
+        <h2>A run that lasts more than one session.</h2>
+        <p>A descent spans several sessions. When a session ends the party makes camp at the depth it reached, and the next session breaks camp and walks on from there. Choose “Return home” at camp and everything the party is carrying is banked, along with a bonus for how deep it went.</p>
+      </div>
+      <div class="feature-art">
+        <div class="device">
+        <div class="screen">
+          <picture>
+            <source srcset="assets/img/shot-1-1-camp.webp" type="image/webp">
+            <img src="assets/img/shot-1-1-camp.jpg" width="760" height="1651" loading="lazy" decoding="async" alt="The camp screen: depth reached 225, spoils at risk 9,538, with session lengths of 15, 25, 45 and 60 minutes.">
+          </picture>
+        </div>
+      </div>
+      </div>
+    </section>
+    <section class="feature reveal">
+      <div class="feature-copy">
+        <p class="eyebrow">Nothing to tap</p>
+        <h2>You are not supposed to be touching your phone.</h2>
+        <p>There are no buttons, no choices and no controls during a session — that is the entire point. The screen is built to be read in one second from across a desk.</p>
+      </div>
+      <div class="feature-art">
+        <div class="device">
+        <div class="screen">
+          <picture>
+            <source srcset="assets/img/shot-3-3-spoils.webp" type="image/webp">
+            <img src="assets/img/shot-3-3-spoils.jpg" width="760" height="1651" loading="lazy" decoding="async" alt="The march continuing at depth 234.2 with 9,624 spoils collected and the party standing at 4 of 4.">
+          </picture>
+        </div>
+      </div>
+      </div>
+    </section>
+    <section class="feature reveal">
+      <div class="feature-copy">
+        <p class="eyebrow">The count</p>
+        <h2>Focusing longer is never worse.</h2>
+        <p>Lost encounters still pay. The party cannot be wiped out. Every summary leads with the minutes you actually concentrated — even the sessions that ended badly. The expedition can fail; the focus always counts.</p>
+      </div>
+      <div class="feature-art">
+        <div class="device">
+        <div class="screen">
+          <picture>
+            <source srcset="assets/img/shot-4-4-summary.webp" type="image/webp">
+            <img src="assets/img/shot-4-4-summary.jpg" width="760" height="1651" loading="lazy" decoding="async" alt="A summary screen: 225 leagues brought home over three sessions, +10,028 ember banked.">
+          </picture>
+        </div>
+      </div>
+      </div>
+    </section>
+  </div>
 </div>
+
+<section class="trust">
+  <div class="wrap">
+    <h2>What you get, and what you don&rsquo;t</h2>
+    <div class="trust-grid">
+      <div class="reveal"><h3>Locking is not leaving</h3><p>Screen off and face down is the best thing you can do — the march continues.</p></div>
+      <div class="reveal"><h3>Works offline</h3><p>No network code in the app at all.</p></div>
+      <div class="reveal"><h3>Nothing to sign up for</h3><p>No account, no sync, no profile.</p></div>
+      <div class="reveal"><h3>Nothing to buy</h3><p>No ads, no in-app purchases.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="closer">
+  <div class="wrap">
+    <p class="line">Spoils that make it home become ember, and ember recruits and promotes your party.</p>
+    <div class="cta-row"><a class="badge" href="https://apps.apple.com/app/id6801521235"><img src="assets/img/app-store-badge.svg" width="160" height="53" alt="Download on the App Store"></a></div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <a href="support.html">Support</a> <a href="privacy.html">Privacy</a> <a href="mailto:richohios@gmail.com">richohios@gmail.com</a>
+    <span class="copy">© 2026 Won Seok Oh</span>
+  </div>
+</footer>
+<script>document.documentElement.classList.add('js');
+(function(){
+  var bar=document.querySelector('.bar');
+  if(bar){var s=function(){bar.classList.toggle('is-stuck',window.scrollY>4)};
+    s();addEventListener('scroll',s,{passive:true});}
+  var els=document.querySelectorAll('.reveal');
+  if(!('IntersectionObserver' in window)){
+    for(var i=0;i<els.length;i++)els[i].classList.add('in');return;}
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})
+  },{rootMargin:'0px 0px -8% 0px',threshold:.08});
+  for(var j=0;j<els.length;j++)io.observe(els[j]);
+})();</script>
 </body>
 </html>
