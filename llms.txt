@@ -1,0 +1,17 @@
+# Nightwalk: Focus Expedition
+
+> Nightwalk is a free iPhone focus timer. Start a session and an expedition party sets out across the dark, lit by one lantern. The party walks only while you stay off your phone; leave the app and it stops. Spoils that survive a session become ember, which recruits and promotes the party (lantern bearer, scout, warden, finder), so a stronger party walks further. Session lengths are 15, 25, 45 or 60 minutes. No ads, no in-app purchases, no account, and no network code — it works fully offline.
+
+## The three rules
+
+1. Leave the app and the party stops. Come back within 15 seconds and it walks on; stay away longer and the run is lost, with 40% of its spoils recovered.
+2. Locking the phone is not leaving. Screen off counts as focusing, and the march continues.
+3. Focusing longer is never worse. Nothing dies, the party cannot be wiped out, and the minutes you focused always count.
+
+## Links
+
+- [Website (English)](https://richoh86.github.io/nightwalk-site/)
+- [Website (Korean / 한국어)](https://richoh86.github.io/nightwalk-site/ko/)
+- [App Store](https://apps.apple.com/app/id6801521235)
+- [Support](https://richoh86.github.io/nightwalk-site/support.html)
+- [Privacy policy](https://richoh86.github.io/nightwalk-site/privacy.html)
