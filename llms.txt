@@ -1,12 +1,17 @@
 # Nightwalk: Focus Expedition
 
-> Nightwalk is a free iPhone focus timer. Start a session and an expedition party sets out across the dark, lit by one lantern. The party walks only while you stay off your phone; leave the app and it stops. Spoils that survive a session become ember, which recruits and promotes the party (lantern bearer, scout, warden, finder), so a stronger party walks further. Session lengths are 15, 25, 45 or 60 minutes. No ads, no in-app purchases, no account, and no network code — it works fully offline.
+> Nightwalk is a free iPhone focus timer (iOS 17+, current version 1.2). Start a session and an expedition party sets out across the dark, lit by one lantern. The party walks only while you stay off your phone; leave the app and it stops. A run, called a descent, spans several sessions: when a session ends the party camps at the depth it reached, and the next session continues from there. Choosing "Return home" at camp banks everything the party carries as ember, plus a depth bonus. Ember recruits and promotes the party (lantern bearer, scout, warden, finder), so a stronger party walks further. Session lengths are 15, 25, 45 or 60 minutes. The interface is available in 16 languages. Nothing to buy, no account, no third-party SDKs and no network code — it works fully offline.
 
-## The three rules
+## The rules
 
-1. Leave the app and the party stops. Come back within 15 seconds and it walks on; stay away longer and the run is lost, with 40% of its spoils recovered.
+1. Leave the app and the party stops. Come back within 15 seconds and it walks on; stay away longer and the whole descent is lost, every session of it, with 40% of its spoils recovered as ember.
 2. Locking the phone is not leaving. Screen off counts as focusing, and the march continues.
 3. Focusing longer is never worse. Nothing dies, the party cannot be wiped out, and the minutes you focused always count.
+
+## Lock Screen and reminders (added in 1.2)
+
+- Live Activity: during a session the Lock Screen shows the time left, a progress bar and the current depth; on iPhones with a Dynamic Island, a small flame and the countdown appear there. It does not show the march animation. Turn it on or off in Settings > Nightwalk > Live Activities.
+- Reminders are optional and off by default: a daily reminder at a chosen time (offered after the first completed session) and one nudge about 20 hours after the party makes camp. Notifications are local, scheduled on the device, and never sent during a session.
 
 ## Links
 

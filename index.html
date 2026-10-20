@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Nightwalk — Focus Timer Expedition for iPhone</title>
-<meta name="description" content="A focus timer where an expedition advances only while you stay off your phone. Leave and the party stops. Free, offline, nothing to buy.">
+<meta name="description" content="A focus timer where a night expedition walks only while you stay off your phone. Runs span sessions; the countdown sits on your Lock Screen. Free, offline.">
 <link rel="canonical" href="https://richoh86.github.io/nightwalk-site/">
 <link rel="alternate" hreflang="en" href="https://richoh86.github.io/nightwalk-site/">
 <link rel="alternate" hreflang="ko" href="https://richoh86.github.io/nightwalk-site/ko/">
@@ -16,14 +16,14 @@
 <meta property="og:locale:alternate" content="ko_KR">
 <meta property="og:site_name" content="Nightwalk">
 <meta property="og:title" content="Nightwalk: Focus Expedition">
-<meta property="og:description" content="A focus timer where an expedition advances only while you stay off your phone. Leave and the party stops. Free, offline, nothing to buy.">
+<meta property="og:description" content="A focus timer where a night expedition walks only while you stay off your phone. Runs span sessions; the countdown sits on your Lock Screen. Free, offline.">
 <meta property="og:url" content="https://richoh86.github.io/nightwalk-site/">
 <meta property="og:image" content="https://richoh86.github.io/nightwalk-site/assets/img/og.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Nightwalk: Focus Expedition">
-<meta name="twitter:description" content="A focus timer where an expedition advances only while you stay off your phone. Leave and the party stops. Free, offline, nothing to buy.">
+<meta name="twitter:description" content="A focus timer where a night expedition walks only while you stay off your phone. Runs span sessions; the countdown sits on your Lock Screen. Free, offline.">
 <meta name="twitter:image" content="https://richoh86.github.io/nightwalk-site/assets/img/og.jpg">
 <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32.png">
 <link rel="icon" type="image/png" sizes="512x512" href="assets/img/icon-512.png">
@@ -214,6 +214,37 @@ footer .copy{margin-left:auto}
 .doc-links a{text-decoration:none;border-bottom:1px solid var(--line)}
 .doc-links a:hover{color:var(--text);border-bottom-color:var(--accent)}
 
+/* ------------------------------------------- live activity illustration */
+.lock{position:relative;width:min(100%,19.5rem);margin-inline:auto;
+  padding:1rem .85rem 1.15rem;border-radius:2.4rem;border:1px solid var(--line);
+  background:radial-gradient(90% 55% at 50% 0%,var(--halo2),transparent 70%),
+             linear-gradient(180deg,#0F1628 0%,var(--bg) 100%);
+  box-shadow:0 34px 70px -26px rgba(0,0,0,.72),0 90px 120px -60px var(--glow)}
+.lock .island{display:flex;align-items:center;justify-content:space-between;
+  width:7.6rem;height:1.95rem;margin-inline:auto;padding:0 .75rem;border-radius:999px;
+  background:#000;color:var(--accent);font-size:.74rem;font-weight:600;
+  font-variant-numeric:tabular-nums}
+.lock .time-of-day{margin:1.3rem 0 1.6rem;text-align:center;font-size:3.6rem;
+  font-weight:300;line-height:1;letter-spacing:-.02em;color:var(--text)}
+.flame{display:inline-block;flex:none;width:.6rem;height:.6rem;margin-top:.15rem;
+  border-radius:50% 0 50% 50%;transform:rotate(-45deg);
+  background:linear-gradient(225deg,#FFD9A0 0%,var(--accent) 55%,#C2541C 100%)}
+.la{background:rgba(13,19,34,.94);border:1px solid var(--line);border-radius:1.3rem;
+  padding:.95rem 1.05rem 1rem;text-align:left}
+.la-top{display:flex;align-items:center;gap:.5rem;min-width:0}
+.la-word{font-size:.64rem;font-weight:800;letter-spacing:.2em;color:var(--accent)}
+.la-leg{font-size:.64rem;font-weight:500;color:var(--dim);white-space:nowrap}
+.la-depth{margin-left:auto;text-align:right;line-height:1.1}
+.la-depth small{display:block;font-size:.5rem;font-weight:600;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--dim)}
+.la-depth span{font-size:.95rem;font-weight:300;font-variant-numeric:tabular-nums}
+.la-clock{margin-top:.55rem;font-size:2.45rem;font-weight:300;line-height:1;
+  font-variant-numeric:tabular-nums;color:var(--text)}
+.la-bar{margin-top:.65rem;height:.28rem;border-radius:999px;background:var(--line);overflow:hidden}
+.la-bar i{display:block;width:37%;height:100%;border-radius:inherit;background:var(--accent)}
+.la-line{margin-top:.55rem;font-size:.74rem;line-height:1.4;color:var(--dim)}
+.illus-note{margin-top:1rem;text-align:center;font-size:.8rem;color:var(--dim)}
+
 /* ----------------------------------------------------------------- reveal */
 .js .reveal{opacity:0;transform:translateY(18px);
   transition:opacity .7s cubic-bezier(.22,.7,.3,1),transform .7s cubic-bezier(.22,.7,.3,1)}
@@ -233,7 +264,7 @@ footer .copy{margin-left:auto}
       "operatingSystem": "iOS",
       "applicationCategory": "ProductivityApplication",
       "inLanguage": "en",
-      "description": "A focus timer where an expedition advances only while you stay off your phone. Leave and the party stops. Free, offline, nothing to buy.",
+      "description": "A focus timer where a night expedition walks only while you stay off your phone. Runs span sessions; the countdown sits on your Lock Screen. Free, offline.",
       "url": "https://apps.apple.com/app/id6801521235",
       "downloadUrl": "https://apps.apple.com/app/id6801521235",
       "image": "https://richoh86.github.io/nightwalk-site/assets/img/icon-512.png",
@@ -257,7 +288,15 @@ footer .copy{margin-left:auto}
           "name": "What happens if I leave the app?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "The party stops the moment you leave. Come back within fifteen seconds and it walks on. Stay away longer and the run is lost, and 40% of the spoils it was carrying are recovered."
+            "text": "The party stops the moment you leave. Come back within fifteen seconds and it walks on. Stay away longer and the whole descent is lost, every session of it, and 40% of the spoils it was carrying come back as ember."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is a descent?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A run that spans several sessions. When a session ends, the party makes camp at the depth it reached, and the next session breaks camp and walks on from there. Choose Return home at camp to bank everything the party carries, plus a bonus for how deep it went."
           }
         },
         {
@@ -270,18 +309,26 @@ footer .copy{margin-left:auto}
         },
         {
           "@type": "Question",
-          "name": "Is Nightwalk free?",
+          "name": "What shows on the Lock Screen?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes. No ads, no in-app purchases and no account."
+            "text": "While a session runs, a Live Activity shows the time left, a progress bar and your current depth. On iPhones with a Dynamic Island, a small flame and the countdown sit there too."
           }
         },
         {
           "@type": "Question",
-          "name": "How is it different from Forest-style apps?",
+          "name": "Will Nightwalk send me notifications?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Nothing dies. A lost run still pays 40% of its spoils, and the minutes you focused always count. It works fully offline."
+            "text": "Only if you turn them on: a daily reminder at a time you choose, and one nudge about 20 hours after your party makes camp. Nothing is ever sent during a session."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is Nightwalk free?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. There is nothing to buy and no account to create."
           }
         },
         {
@@ -297,7 +344,7 @@ footer .copy{margin-left:auto}
           "name": "What is ember?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Spoils that survive a run become ember. Ember recruits and promotes your party, and a stronger party walks further."
+            "text": "Spoils you bring home become ember. Ember recruits and promotes your party, and a stronger party walks further."
           }
         },
         {
@@ -330,9 +377,9 @@ footer .copy{margin-left:auto}
     <div>
       <p class="kicker">Focus timer · Productivity</p>
       <h1>The expedition only advances while you do.</h1>
-      <p class="lede">Start a session and a party sets out across the dark, lit by one lantern. They walk for exactly as long as you stay out of your phone. Leave the app and they stop. Stay away longer than fifteen seconds and they lose the road.</p>
+      <p class="lede">Start a session and a party sets out across the dark, lit by one lantern. They walk for exactly as long as you stay out of your phone. When the session ends they make camp, and the next one picks up the road where they stopped. Leave the app for more than fifteen seconds and the whole descent is lost.</p>
       <div class="cta-row"><a class="badge" href="https://apps.apple.com/app/id6801521235"><img src="assets/img/app-store-badge.svg" width="160" height="53" alt="Download on the App Store"></a></div>
-      <p class="meta">iPhone · Free · Works offline</p>
+      <p class="meta">iPhone · iOS 17+ · Free · Works offline · 16 languages</p>
     </div>
     <div class="hero-art">
       <div class="device">
@@ -353,7 +400,7 @@ footer .copy{margin-left:auto}
       <div class="feature-copy">
         <p class="eyebrow">Nothing to tap</p>
         <h2>You are not supposed to be touching your phone.</h2>
-        <p>There are no buttons, no choices and no controls during a session — that is the entire point. The screen is built to be read in one second from across a desk.</p>
+        <p>There are no choices and nothing to play with during a session — that is the entire point. The screen is built to be read in one second from across a desk.</p>
       </div>
       <div class="feature-art">
         <div class="device">
@@ -366,16 +413,57 @@ footer .copy{margin-left:auto}
       </div>
       </div>
     </section>
+    <section class="feature reveal" id="descents">
+      <div class="feature-copy">
+        <p class="eyebrow">Descents</p>
+        <h2>One run, carried across many sessions.</h2>
+        <p>A descent lasts as many sessions as you give it. When a session ends, the party makes camp at the depth it reached; the next session breaks camp and walks on from there. Today&rsquo;s study session picks up exactly where yesterday&rsquo;s stopped.</p>
+        <p>The stakes grow with it. Leave the app during any session and the whole descent is lost, not just that stretch. Choose <em>Return home</em> at camp and everything the party is carrying is banked as ember, with a bonus for how deep it went.</p>
+      </div>
+      <div class="feature-art">
+        <div class="device">
+        <div class="screen">
+          <picture>
+            <source srcset="assets/img/shot-1-1-camp.webp" type="image/webp">
+            <img src="assets/img/shot-1-1-camp.jpg" width="760" height="1651" loading="lazy" decoding="async" alt="The camp screen between sessions: a descent 225 leagues deep after 3 sessions, 9,538 spoils at risk, with Break camp and Return home buttons.">
+          </picture>
+        </div>
+      </div>
+      </div>
+    </section>
+    <section class="feature reveal" id="lock-screen">
+      <div class="feature-copy">
+        <p class="eyebrow">Lock Screen</p>
+        <h2>Lock your phone. The countdown keeps you company.</h2>
+        <p>Locking your phone is not leaving — screen off and face down is the best thing you can do. While a session runs, a Live Activity shows the time left, a progress bar and your current depth on the Lock Screen, and a small flame with the countdown in the Dynamic Island. It is there to be glanced at, not touched.</p>
+        <p>Reminders are optional: one a day at a time you choose, and a single nudge if your party has been sitting at camp for most of a day. Nothing ever arrives during a session.</p>
+      </div>
+      <div class="feature-art">
+        <figure style="margin:0">
+          <div class="lock" role="img" aria-label="Stylised illustration of the Lock Screen during a session: a card reading Nightwalk, Session 2, depth 102, 15:48 left, a progress bar, and the line: The party walks on — locking your phone is fine.">
+            <div class="island" aria-hidden="true"><span class="flame"></span><span>15:48</span></div>
+            <p class="time-of-day" aria-hidden="true">9:41</p>
+            <div class="la" aria-hidden="true">
+              <div class="la-top"><span class="flame"></span><span class="la-word">NIGHTWALK</span><span class="la-leg">Session 2</span><span class="la-depth"><small>Depth</small><span>102</span></span></div>
+              <p class="la-clock">15:48</p>
+              <div class="la-bar"><i></i></div>
+              <p class="la-line">The party walks on — locking your phone is fine.</p>
+            </div>
+          </div>
+          <figcaption class="illus-note">Stylised illustration, not a screenshot.</figcaption>
+        </figure>
+      </div>
+    </section>
     <section class="feature duo reveal">
       <div class="feature-copy">
         <p class="eyebrow">The rule</p>
         <h2>Leave the app and the party stops.</h2>
-        <p>Pick 15, 25, 45 or 60 minutes and set out. Switch to another app and the march halts on the spot. Come back within fifteen seconds and it walks on. Stay away longer and the run is lost — but 40% of the spoils still come home.</p>
+        <p>Pick 15, 25, 45 or 60 minutes and set out. Switch to another app and the march halts on the spot. Come back within fifteen seconds and it walks on. Stay away longer and the descent is lost — every session of it — though 40% of the spoils it was carrying still come home as ember.</p>
       </div>
       <div class="feature-copy">
         <p class="eyebrow">Ember and the party</p>
-        <h2>What survives a run becomes ember.</h2>
-        <p>Spoils that make it through a session turn into ember. Ember recruits new members — lantern bearer, scout, warden, finder — and promotes the ones you already have. A stronger party walks further every time you sit down to focus.</p>
+        <h2>What you bring home becomes ember.</h2>
+        <p>Spoils that make it home turn into ember. Ember recruits new members — lantern bearer, scout, warden, finder — and promotes the ones you already have. A stronger party walks further. Your streak, total focused time and deepest run are kept alongside.</p>
       </div>
     </section>
   </div>
@@ -383,13 +471,13 @@ footer .copy{margin-left:auto}
 
 <section class="trust">
   <div class="wrap">
-    <h2>What you get, and what you don&rsquo;t</h2>
+    <h2>What you can count on</h2>
     <div class="trust-grid">
-      <div class="reveal"><h3>Locking is not leaving</h3><p>Screen off and face down is the best thing you can do — the march continues.</p></div>
-      <div class="reveal"><h3>Works offline</h3><p>No network code in the app at all.</p></div>
-      <div class="reveal"><h3>Nothing to sign up for</h3><p>No account, no sync, no profile.</p></div>
-      <div class="reveal"><h3>Nothing to buy</h3><p>No ads, no in-app purchases.</p></div>
+      <div class="reveal"><h3>Locking is not leaving</h3><p>Screen off and face down is the best thing you can do — the march continues and the time counts.</p></div>
+      <div class="reveal"><h3>Quiet while you focus</h3><p>No notification is ever sent during a session, and reminders stay off until you ask for them.</p></div>
       <div class="reveal"><h3>Nothing dies</h3><p>The party cannot be wiped out. Focusing longer is never worse.</p></div>
+      <div class="reveal"><h3>Free, and it stays on your phone</h3><p>Nothing to buy and nothing to sign up for. There is no network code in the app, so it works offline.</p></div>
+      <div class="reveal"><h3>In 16 languages</h3><p>The whole interface is translated, Korean and Japanese among them.</p></div>
     </div>
   </div>
 </section>
@@ -399,12 +487,14 @@ footer .copy{margin-left:auto}
     <p class="eyebrow">FAQ</p>
     <h2>Questions, answered plainly.</h2>
     <dl>
-      <div class="reveal"><dt>What happens if I leave the app?</dt><dd>The party stops the moment you leave. Come back within fifteen seconds and it walks on. Stay away longer and the run is lost, and 40% of the spoils it was carrying are recovered.</dd></div>
+      <div class="reveal"><dt>What happens if I leave the app?</dt><dd>The party stops the moment you leave. Come back within fifteen seconds and it walks on. Stay away longer and the whole descent is lost, every session of it, and 40% of the spoils it was carrying come back as ember.</dd></div>
+      <div class="reveal"><dt>What is a descent?</dt><dd>A run that spans several sessions. When a session ends, the party makes camp at the depth it reached, and the next session breaks camp and walks on from there. Choose Return home at camp to bank everything the party carries, plus a bonus for how deep it went.</dd></div>
       <div class="reveal"><dt>Does locking my phone end the run?</dt><dd>No. Locking counts as focusing. Screen off and face down is the best thing you can do — the march continues.</dd></div>
-      <div class="reveal"><dt>Is Nightwalk free?</dt><dd>Yes. No ads, no in-app purchases and no account.</dd></div>
-      <div class="reveal"><dt>How is it different from Forest-style apps?</dt><dd>Nothing dies. A lost run still pays 40% of its spoils, and the minutes you focused always count. It works fully offline.</dd></div>
+      <div class="reveal"><dt>What shows on the Lock Screen?</dt><dd>While a session runs, a Live Activity shows the time left, a progress bar and your current depth. On iPhones with a Dynamic Island, a small flame and the countdown sit there too.</dd></div>
+      <div class="reveal"><dt>Will Nightwalk send me notifications?</dt><dd>Only if you turn them on: a daily reminder at a time you choose, and one nudge about 20 hours after your party makes camp. Nothing is ever sent during a session.</dd></div>
+      <div class="reveal"><dt>Is Nightwalk free?</dt><dd>Yes. There is nothing to buy and no account to create.</dd></div>
       <div class="reveal"><dt>Does it work offline?</dt><dd>Yes. There is no network code in the app at all. Nothing leaves your phone.</dd></div>
-      <div class="reveal"><dt>What is ember?</dt><dd>Spoils that survive a run become ember. Ember recruits and promotes your party, and a stronger party walks further.</dd></div>
+      <div class="reveal"><dt>What is ember?</dt><dd>Spoils you bring home become ember. Ember recruits and promotes your party, and a stronger party walks further.</dd></div>
       <div class="reveal"><dt>What session lengths are there?</dt><dd>15, 25, 45 or 60 minutes. Pick one before the party sets out.</dd></div>
     </dl>
   </div>
