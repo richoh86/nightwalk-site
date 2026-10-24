@@ -1,10 +1,10 @@
 # Nightwalk: Focus Expedition
 
-> Nightwalk is a free iPhone focus timer (iOS 17+, current version 1.2). Start a session and an expedition party sets out across the dark, lit by one lantern. The party walks only while you stay off your phone; leave the app and it stops. A run, called a descent, spans several sessions: when a session ends the party camps at the depth it reached, and the next session continues from there. Choosing "Return home" at camp banks everything the party carries as ember, plus a depth bonus. Ember recruits and promotes the party (lantern bearer, scout, warden, finder), so a stronger party walks further. Session lengths are 15, 25, 45 or 60 minutes. The interface is available in 16 languages. Nothing to buy, no account, no third-party SDKs and no network code — it works fully offline.
+> Nightwalk is a free iPhone focus timer (iOS 17+, current version 1.2.1). Start a session and an expedition party sets out across the dark, lit by one lantern. The party walks only while you stay off your phone; leave the app and it stops. A run, called a descent, spans several sessions: when a session ends the party camps at the depth it reached, and the next session continues from there. Choosing "Return home" at camp banks everything the party carries as ember, plus a depth bonus. Ember recruits and promotes the party (lantern bearer, scout, warden, finder), so a stronger party walks further. Session lengths are 15, 25, 45 or 60 minutes. The interface is available in 16 languages. Nothing to buy, no account, no third-party SDKs and no network code — it works fully offline.
 
 ## The rules
 
-1. Leave the app and the party stops. Come back within 15 seconds and it walks on; stay away longer and the whole descent is lost, every session of it, with 40% of its spoils recovered as ember.
+1. Leave the app and the party stops, and that time isn't counted. Leaving mid-session only pauses the march. Since 1.2.1, a session interrupted by a call, the app being closed or the phone restarting can be resumed from its last confirmed progress. A descent ends only if you choose to abandon it, and even then 40% of its spoils come home as ember.
 2. Locking the phone is not leaving. Screen off counts as focusing, and the march continues.
 3. Focusing longer is never worse. Nothing dies, the party cannot be wiped out, and the minutes you focused always count.
 

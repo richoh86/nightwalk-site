@@ -222,7 +222,7 @@ footer .copy{margin-left:auto}
 <main class="doc">
   <div class="wrap">
     <h1>Privacy Policy</h1>
-    <p class="sub">Last updated 20 October 2026</p>
+    <p class="sub">Last updated 24 October 2026</p>
     <div class="prose">
 <div class="card">
     <p><strong>Nightwalk collects nothing.</strong> There is no analytics SDK, no advertising SDK,
@@ -239,6 +239,8 @@ footer .copy{margin-left:auto}
     <li>your ember balance and total focused time</li>
     <li>your preferred session length</li>
     <li>the descent in progress, if any — its depth, the sessions walked and the spoils it is carrying</li>
+    <li>from version 1.2.1, the last confirmed progress of a session that is under way, so an
+      interrupted session can be resumed</li>
     <li>your reminder settings — whether each reminder is on, and the time you chose</li>
   </ul>
   <p>This matches the app's privacy manifest, which declares exactly one accessed API category:
@@ -286,7 +288,8 @@ footer .copy{margin-left:auto}
   <p><strong>나이트워크는 어떤 개인정보도 수집하지 않습니다.</strong> 분석 도구, 광고 SDK, 크래시 리포터,
   계정 시스템이 전혀 없으며, 앱에 네트워크 통신 코드 자체가 없습니다.</p>
   <p>세션 기록(날짜·집중 시간·도달 깊이·전리품·잉걸·귀환 여부), 원정대 구성과 등급, 잉걸 잔액,
-  총 집중 시간, 선호 세션 길이, 진행 중인 원정(깊이·걸어온 세션·들고 있는 전리품), 알림 설정(켜짐 여부와
+  총 집중 시간, 선호 세션 길이, 진행 중인 원정(깊이·걸어온 세션·들고 있는 전리품), 중단된 세션을 이어갈 수 있도록 진행 중인 세션의
+  마지막으로 확인된 진행 상황(버전 1.2.1부터), 알림 설정(켜짐 여부와
   시각)은 모두 기기 내부 저장소에만 기록되며 외부로 전송되지 않습니다. 앱을 삭제하면 함께 삭제됩니다.</p>
   <p>알림은 직접 켜기 전까지 꺼져 있습니다. 켜면 iOS 표준 알림 권한을 요청하고, 알림은 기기 안에서
   예약되는 로컬 알림으로만 전달됩니다. 서버를 거치지 않으며 푸시 알림을 쓰지 않으므로 기기 토큰도 만들거나

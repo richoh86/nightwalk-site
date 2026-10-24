@@ -4,21 +4,21 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Nightwalk: Focus Expedition — Support</title>
-<meta name="description" content="Help for Nightwalk: Focus Expedition — descents, the Lock Screen Live Activity, reminders, and what to do when a descent is lost.">
+<meta name="description" content="Help for Nightwalk: Focus Expedition — descents, the Lock Screen Live Activity, reminders, and what happens when you leave the app or a session is interrupted.">
 <link rel="canonical" href="https://richoh86.github.io/nightwalk-site/support.html">
 <meta name="theme-color" content="#070A12">
 <meta name="apple-itunes-app" content="app-id=6801521235">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Nightwalk">
 <meta property="og:title" content="Nightwalk: Focus Expedition — Support">
-<meta property="og:description" content="Help for Nightwalk: Focus Expedition — descents, the Lock Screen Live Activity, reminders, and what to do when a descent is lost.">
+<meta property="og:description" content="Help for Nightwalk: Focus Expedition — descents, the Lock Screen Live Activity, reminders, and what happens when you leave the app or a session is interrupted.">
 <meta property="og:url" content="https://richoh86.github.io/nightwalk-site/support.html">
 <meta property="og:image" content="https://richoh86.github.io/nightwalk-site/assets/img/og.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Nightwalk: Focus Expedition — Support">
-<meta name="twitter:description" content="Help for Nightwalk: Focus Expedition — descents, the Lock Screen Live Activity, reminders, and what to do when a descent is lost.">
+<meta name="twitter:description" content="Help for Nightwalk: Focus Expedition — descents, the Lock Screen Live Activity, reminders, and what happens when you leave the app or a session is interrupted.">
 <meta name="twitter:image" content="https://richoh86.github.io/nightwalk-site/assets/img/og.jpg">
 <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32.png">
 <link rel="icon" type="image/png" sizes="512x512" href="assets/img/icon-512.png">
@@ -235,26 +235,22 @@ footer .copy{margin-left:auto}
   bigger party gets deeper before it starts losing fights. Recruits and promotions join from the
   next descent; the party on a descent stays as it set out.</p>
 
-  <h2 id="descent-lost">Why did my descent disappear?</h2>
-  <p>A descent ends in one of two ways: you choose <em>Return home</em> at camp, or it is lost. It is
-  lost if you switch to another app during a session and stay away longer than the grace window
-  (15 seconds), or if you choose <em>Abandon expedition</em> on the march screen. Either way the
-  whole descent goes, every session of it, not just the one you were in. That is the rule shown
-  at camp, and it is what makes a deep descent worth protecting.</p>
-  <p>A lost descent still pays 40% of the spoils it was carrying as ember, and the minutes you
-  focused stay in your totals. The expedition can fail, but the focus always counts.</p>
+  <h2 id="descent-lost">What happens if I leave the app, or a session is interrupted?</h2>
+  <p>Leaving mid-session only pauses the march: the party stops, and the time you spend away is not
+  counted. From version 1.2.1, if a session is interrupted — a call, the app being closed, the phone
+  restarting — you can resume it from its last confirmed progress instead of losing it.</p>
+  <p>A descent ends in one of two ways, and both are your choice: you choose <em>Return home</em> at
+  camp, or you choose <em>Abandon expedition</em> on the march screen. An abandoned descent still
+  pays 40% of its spoils as ember, and the minutes you focused stay in your totals. The expedition
+  can fail, but the focus always counts.</p>
   <p>Deleting the app also deletes any descent in progress, because everything is stored only on
   your device.</p>
 
   <h2>Can I lock my phone during a session?</h2>
   <p>Yes, and it is the best thing you can do. Locking the screen and putting the phone down is not
-  treated as leaving — the march continues and the time counts. Only switching to another app ends
-  a run.</p>
-  <p>iOS gives no single reliable signal that separates "screen locked" from "opened another app",
-  so Nightwalk combines two: whether protected data became unavailable (accurate on any device with
-  a passcode) and whether screen brightness dropped to zero. When both readings are inconclusive the
-  run is <em>kept</em>, never lost. If you ever see a run survive when you think it should not have,
-  that is this rule doing its job — and we would still like to hear about it.</p>
+  treated as leaving — the march continues and the time counts. Switching to another app pauses the
+  march; only you can end a descent, by abandoning it.</p>
+  <p>If a session does not pause or resume as expected, contact support with the iOS version and what happened. Do not include personal data.</p>
 
   <h2 id="live-activity">The countdown on the Lock Screen (Live Activity)</h2>
   <p>While a session runs, Nightwalk shows a Live Activity: the time left, a progress bar, your
@@ -310,9 +306,13 @@ footer .copy{margin-left:auto}
   no sync, so deleting the app erases your history permanently — there is no way for us to restore
   it.</p>
 
+  <h2>Accessibility</h2>
+  <p>Version 1.2.1 brought accessibility improvements: VoiceOver labels and support for larger
+  text. If something is still hard to read or to use with VoiceOver, please tell us.</p>
+
   <h2>Bug reports</h2>
   <p>Email <a href="mailto:richohios@gmail.com">richohios@gmail.com</a> with your device model, iOS
-  version, and what you were doing. If a session ended when it should not have, telling us whether
+  version, and what you were doing. If a session paused when it should not have, telling us whether
   the screen was locked or you had switched apps is the single most useful detail.</p>
 
   <hr>
@@ -323,12 +323,16 @@ footer .copy{margin-left:auto}
   누르면 같은 원정을 이어서 더 깊이 들어가고, '집으로 돌아가기'를 누르면 들고 있던 전리품이 모두
   잉걸로 정산되고 깊이와 세션 수에 따른 보너스가 더해집니다. 잉걸로 대원을 영입·승급하며, 새 대원과 승급은
   다음 원정부터 반영됩니다.</p>
-  <p><strong>원정이 사라졌어요.</strong> 세션 도중 다른 앱으로 넘어가 유예 시간(15초)을 넘기거나, 행군
-  화면에서 '원정 접기'를 고르면 그 세션 하나가 아니라 지금까지 이어 온 원정 전체가 끝납니다.
-  그래도 들고 있던 전리품의 40%는 잉걸로 돌아오고, 집중한 시간은 전부 기록에 남습니다. 앱을 삭제하면
-  진행 중인 원정도 함께 삭제됩니다.</p>
+  <p><strong>앱을 나가거나 세션이 중단되면 원정을 잃나요?</strong> 아닙니다. 세션 도중에 나가도 행군이
+  잠시 멈출 뿐이고, 나가 있던 시간은 인정되지 않습니다. 버전 1.2.1부터는 전화가 오거나 앱이 종료되거나 폰이
+  재시작되어 세션이 중단되어도, 잃지 않고 마지막으로 확인된 진행 지점부터 이어갈 수 있습니다. 원정은
+  야영지에서 '집으로 돌아가기'를 고르거나 행군 화면에서 '원정 접기'를 직접 고를 때만 끝납니다. 원정을 접어도
+  원정 전체 전리품의 40%는 잉걸로 돌아오고, 집중한 시간은 전부 기록에 남습니다. 앱을 삭제하면 진행 중인
+  원정도 함께 삭제됩니다.</p>
   <p><strong>화면을 잠가도 되나요?</strong> 됩니다. 오히려 권장합니다. 잠금은 이탈로 보지 않으며
-  행군이 계속되고 시간도 인정됩니다. 다른 앱으로 전환할 때만 원정이 끝납니다.</p>
+  행군이 계속되고 시간도 인정됩니다. 다른 앱으로 전환하면 행군이 잠시 멈출 뿐, 원정은 직접 포기할 때만 끝납니다.</p>
+  <p><strong>손쉬운 사용</strong> 버전 1.2.1에서 VoiceOver 레이블과 더 큰 텍스트 지원을 개선했습니다. 여전히
+  읽기 어렵거나 VoiceOver로 쓰기 불편한 부분이 있으면 알려 주세요.</p>
   <p><strong>잠금 화면에 남은 시간이 안 보여요.</strong> 세션 중에는 라이브 액티비티가 남은 시간, 진행 막대,
   현재 깊이, 몇 번째 세션인지를 잠금 화면에 보여주고, 다이내믹 아일랜드가 있는 iPhone에서는 작은 불꽃과
   남은 시간도 표시합니다. 보이지 않으면 '설정 &gt; Nightwalk &gt; 실시간 현황'이 켜져 있는지
